@@ -4,9 +4,10 @@ import commonjs from 'rollup-plugin-commonjs';
 import uglify from 'rollup-plugin-uglify';
 
 export default {
-  entry: 'src/main.js',
+  entry: 'js/app/main.js',
   dest: 'dist/build.js',
-  sourceMap: false,
+  sourceMap: true,
+  sourceMapFile: 'dist/build.js.map',
   format: 'iife',
   plugins: [
     nodeResolve({jsnext: true, module: true}),

@@ -4,12 +4,10 @@
   "description": "A simple build with Webpack",
   "main": "index.js",
   "scripts": {
-    "transpile:jit": "ngc -p tsconfig.json",
-    "transpile:aot": "ngc -p tsconfig-aot.json",
-    "build:jit": "npm run transpile:jit && rollup -c rollup-config.js",
-    "build:aot": "npm run transpile:aot && rollup -c rollup-config-aot.js",
-    "lite:aot": "lite-server -c aot/bs-config.json",
-    "serve:aot": "npm run build:aot && npm run lite:aot"
+    "clean-and-copy": "rm -rf dist aot && mkdir dist && node copy-dist-files.js",
+    "transpile": "npm run clean-and-copy && ngc -p tsconfig.json",
+    "build": "npm run transpile && rollup -c rollup-config.js",
+    "start": "npm run build && lite-server"
   },
   "private": true,
   "keywords": [],
@@ -26,7 +24,7 @@
     "core-js": "2.4.1",
     "reflect-metadata": "0.1.8",
     "rxjs": "5.0.0-rc.4",
-    "typescript": "~2.0.0",
+    "typescript": "2.0.10",
     "zone.js": "0.7.2"
   },
   "devDependencies": {
