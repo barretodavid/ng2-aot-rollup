@@ -1,0 +1,39 @@
+{
+  "name": "simple-build",
+  "version": "1.0.0",
+  "description": "A simple build with Webpack",
+  "main": "index.js",
+  "scripts": {
+    "transpile:jit": "ngc -p tsconfig.json",
+    "transpile:aot": "ngc -p tsconfig-aot.json",
+    "build:jit": "npm run transpile:jit && rollup -c rollup-config.js",
+    "build:aot": "npm run transpile:aot && rollup -c rollup-config-aot.js",
+    "lite:aot": "lite-server -c aot/bs-config.json",
+    "serve:aot": "npm run build:aot && npm run lite:aot"
+  },
+  "private": true,
+  "keywords": [],
+  "author": "David Barreto <barretollano@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/common": "2.3.1",
+    "@angular/compiler": "2.3.1",
+    "@angular/compiler-cli": "2.3.1",
+    "@angular/core": "2.3.1",
+    "@angular/platform-browser": "2.3.1",
+    "@angular/platform-browser-dynamic": "2.3.1",
+    "@angular/platform-server": "2.3.1",
+    "core-js": "2.4.1",
+    "reflect-metadata": "0.1.8",
+    "rxjs": "5.0.0-rc.4",
+    "typescript": "~2.0.0",
+    "zone.js": "0.7.2"
+  },
+  "devDependencies": {
+    "lite-server": "2.2.2",
+    "rollup": "0.37.0",
+    "rollup-plugin-commonjs": "6.0.0",
+    "rollup-plugin-node-resolve": "2.0.0",
+    "rollup-plugin-uglify": "1.0.1"
+  }
+}
