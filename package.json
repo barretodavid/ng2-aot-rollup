@@ -4,7 +4,7 @@
   "description": "A simple build with Webpack",
   "main": "index.js",
   "scripts": {
-    "clean-and-copy": "rm -rf dist aot && mkdir dist && node copy-dist-files.js",
+    "clean-and-copy": "rm -rf dist aot .temp && mkdir dist && node copy-dist-files.js",
     "transpile": "npm run clean-and-copy && ngc -p tsconfig.json",
     "build": "npm run transpile && rollup -c rollup-config.js",
     "start": "npm run build && lite-server"
