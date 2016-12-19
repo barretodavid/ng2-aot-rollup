@@ -1,15 +1,15 @@
 {
-  "name": "simple-build",
-  "version": "1.0.0",
-  "description": "A simple build with Webpack",
-  "main": "index.js",
+  "name": "ng2-aot-rollup-build",
+  "version": "0.1.0",
+  "description": "A simple build system for Angular 2 with Rollup",
   "scripts": {
-    "clean-and-copy": "rm -rf dist aot .temp && mkdir dist && node copy-dist-files.js",
-    "transpile": "npm run clean-and-copy && ngc -p tsconfig.json",
+    "explorer": "source-map-explorer dist/build.js",
+    "clean-and-copy": "rm -rf dist aot .temp && mkdir dist && node bin/copy-dist-files.js",
+    "transpile": "ngc -p tsconfig.json",
     "build": "npm run transpile && rollup -c rollup-config.js",
-    "start": "npm run build && lite-server"
+    "build:watch": "node bin/watch-files.js",
+    "start": "lite-server"
   },
-  "private": true,
   "keywords": [],
   "author": "David Barreto <barretollano@gmail.com>",
   "license": "ISC",
@@ -29,9 +29,11 @@
   },
   "devDependencies": {
     "lite-server": "2.2.2",
+    "node-watch": "0.4.1",
     "rollup": "0.37.0",
     "rollup-plugin-commonjs": "6.0.0",
     "rollup-plugin-node-resolve": "2.0.0",
-    "rollup-plugin-uglify": "1.0.1"
+    "rollup-plugin-uglify": "1.0.1",
+    "source-map-explorer": "1.3.3"
   }
 }

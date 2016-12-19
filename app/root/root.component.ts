@@ -9,5 +9,5 @@ import {
   styleUrls: ['root.component.css']
 })
 export class RootComponent {
-  myTitle = 'My great title 2';
+  myTitle = 'My great title';
 }
